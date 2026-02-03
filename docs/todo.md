@@ -14,7 +14,7 @@
 - [x] User Model erweitern
 - [x] Registrierung hinzufuegen
 - [x] Login hinzufuegen
-- [ ] Middleware und protected Routes einrichten
+- [x] Middleware und protected Routes einrichten
 - [ ] Tests schreiben
 
 ## Phase 2: Haushaltsverwaltung

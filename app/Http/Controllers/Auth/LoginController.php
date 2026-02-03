@@ -18,7 +18,7 @@ class LoginController extends Controller
     {
         $data = $request->validated();
 
-        if (!Auth::attempt($data)) {
+        if (! Auth::attempt($data)) {
             return back()->withInput()->withErrors(['password' => 'E-Mail oder Passwort nicht korrekt!']);
         }
 
