@@ -13,7 +13,7 @@
 
 - [x] User Model erweitern
 - [x] Registrierung hinzufuegen
-- [ ] Login hinzufuegen
+- [x] Login hinzufuegen
 - [ ] Middleware und protected Routes einrichten
 - [ ] Tests schreiben
 
