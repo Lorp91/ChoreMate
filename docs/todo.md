@@ -11,8 +11,8 @@
 
 ## Phase 1: Authentifizierung
 
-- [ ] User Model erweitern
-- [ ] Registrierung hinzufuegen
+- [x] User Model erweitern
+- [x] Registrierung hinzufuegen
 - [ ] Login hinzufuegen
 - [ ] Middleware und protected Routes einrichten
 - [ ] Tests schreiben
