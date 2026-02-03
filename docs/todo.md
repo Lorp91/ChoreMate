@@ -2,12 +2,12 @@
 
 ## Phase 0: Vorbereitung und Setup
 
-- [ ] Projektstruktur anlegen
-  - [ ] Git initialisieren
-- [ ] Datenbank vorbereiten
-- [ ] Frontend-Basis
-  - [ ] Tailwind + DaisyUI installieren
-  - [ ] Tailwind + DaisyUI konfigurieren
+- [x] Projektstruktur anlegen
+  - [x] Git initialisieren
+- [x] Datenbank vorbereiten
+- [x] Frontend-Basis
+  - [x] Tailwind + DaisyUI installieren
+  - [x] Tailwind + DaisyUI konfigurieren
 
 ## Phase 1: Authentifizierung
 
