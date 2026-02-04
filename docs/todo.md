@@ -19,7 +19,7 @@
 
 ## Phase 2: Haushaltsverwaltung
 
-- [ ] Haushalt Model+Migration
+- [x] Haushalt Model+Migration
 - [ ] Mitgliedschaft Model+Migration
   - [ ] Beziehungen in Models
 - [ ] HaushaltController erstellen
