@@ -15,7 +15,7 @@
 - [x] Registrierung hinzufuegen
 - [x] Login hinzufuegen
 - [x] Middleware und protected Routes einrichten
-- [ ] Tests schreiben
+- [x] Tests schreiben
 
 ## Phase 2: Haushaltsverwaltung
 
