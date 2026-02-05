@@ -21,7 +21,7 @@
 
 - [x] Haushalt Model+Migration
 - [x] Mitgliedschaft Model+Migration
-  - [ ] Beziehungen in Models
+  - [x] Beziehungen in Models
 - [ ] HaushaltController erstellen
   - [ ] Authorization mit isAdmin()
 - [ ] Views erstellen

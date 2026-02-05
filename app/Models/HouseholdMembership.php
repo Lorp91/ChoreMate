@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\HouseholdRole;
+use App\Enums\MembershipStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -36,5 +37,10 @@ class HouseholdMembership extends Model
     public function isOwner(): bool
     {
         return $this->role === HouseholdRole::OWNER->label();
+    }
+
+    public function isActive(): bool
+    {
+        return $this->status === MembershipStatus::ACTIVE->label();
     }
 }
