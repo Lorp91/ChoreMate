@@ -22,8 +22,10 @@
 - [x] Haushalt Model+Migration
 - [x] Mitgliedschaft Model+Migration
   - [x] Beziehungen in Models
-- [ ] HaushaltController erstellen
-  - [ ] Authorization mit isAdmin()
+- [x] HaushaltController erstellen
+  - [ ] Authorization mit isOwner()
+  - [ ] update function implementieren
+  - [ ] destroy function implementieren
 - [ ] Views erstellen
 - [ ] Tests schreiben
 
