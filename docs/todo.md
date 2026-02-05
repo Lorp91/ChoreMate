@@ -20,7 +20,7 @@
 ## Phase 2: Haushaltsverwaltung
 
 - [x] Haushalt Model+Migration
-- [ ] Mitgliedschaft Model+Migration
+- [x] Mitgliedschaft Model+Migration
   - [ ] Beziehungen in Models
 - [ ] HaushaltController erstellen
   - [ ] Authorization mit isAdmin()

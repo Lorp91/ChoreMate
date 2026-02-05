@@ -13,6 +13,4 @@ class Household extends Model
     protected $fillable = [
         'name',
     ];
-
-
 }
