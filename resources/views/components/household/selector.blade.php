@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('household.switch') }}" class="w-sm">
+<form method="POST" action="{{ route('household.switch') }}" class="w-full">
     @csrf
 
     <div class="dropdown dropdown-bottom w-full text-left">
@@ -45,8 +45,3 @@
         </ul>
     </div>
 </form>
-
-<x-household.create-modal/>
-<x-household.edit-modal/>
-
-
