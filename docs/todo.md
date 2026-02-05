@@ -26,7 +26,11 @@
   - [ ] Authorization mit isOwner()
   - [ ] update function implementieren
   - [ ] destroy function implementieren
-- [ ] Views erstellen
+- [x] Views erstellen
+  - [ ] edit-modal fertigstellen
+    - [ ] input-values fuellen
+    - [ ] delete form implementieren
+    - [ ] eigene form errors(gerade beides 'name')
 - [ ] Tests schreiben
 
 ## Phase 3: Raum

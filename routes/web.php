@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Household\HouseholdController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,7 +21,9 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::delete('/logout', [LoginController::class, 'destroy'])->name('login.destroy');
 
-    Route::get('/dashboard', function () {
-        return view('app.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::post('/household', [HouseholdController::class, 'store'])->name('household.store');
+    Route::put('/household', [HouseholdController::class, 'update'])->name('household.update');
+    Route::post('/household/switch', [HouseholdController::class, 'switch'])->name('household.switch');
 });

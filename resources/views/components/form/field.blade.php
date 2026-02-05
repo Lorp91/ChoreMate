@@ -5,7 +5,7 @@
     <input
         id="{{ $name }}"
         name="{{ $name }}"
-        class="input @error($name) input-error @enderror"
+        class="input w-full @error($name) input-error @enderror"
         type="{{ $type }}"
         value="{{ old($name, $value) }}"
         {{ $attributes }}
