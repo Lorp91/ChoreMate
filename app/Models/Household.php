@@ -31,6 +31,11 @@ class Household extends Model
             ->withTimestamps();
     }
 
+    public function rooms(): HasMany
+    {
+        return $this->hasMany(Room::class);
+    }
+
     public function owner(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'household_memberships')
