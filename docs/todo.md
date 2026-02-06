@@ -35,7 +35,7 @@
 
 ## Phase 3: Raum
 
-- [ ] Raum Model+Migration
+- [x] Raum Model+Migration
   - [ ] Beziehungen in Model
 - [ ] RaumController erstellen
 - [ ] Views erstellen
