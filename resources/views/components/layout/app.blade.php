@@ -13,7 +13,7 @@
 <body>
 <div class="drawer lg:drawer-open">
     <input id="my-drawer" type="checkbox" class="drawer-toggle"/>
-    <div class="drawer-content flex flex-col items-center justify-center">
+    <div class="drawer-content">
         {{-- page content --}}
         <div class="navbar bg-base-100 shadow-sm">
             <div class="flex-none lg:hidden">
@@ -37,7 +37,10 @@
                 </form>
             </div>
         </div>
-        {{ $slot }}
+        <main class="p-5">
+            {{ $slot }}
+        </main>
+
     </div>
     <div class="drawer-side">
         <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
@@ -48,18 +51,13 @@
                 <h1 class="text-4xl font-semibold">ChoreMate</h1>
             </div>
             <div class="mt-5">
-                <x-household.selector/>
+                <a href="{{ route('households.index') }}" class="text-3xl">{{ $currentHousehold->name }}</a>
             </div>
             <div class="mt-5">
-                {{-- rooms here --}}
+                <x-room.selector :current-household="$currentHousehold" :current-rooms="$currentRooms"/>
             </div>
         </ul>
     </div>
 </div>
-
-{{-- Modals --}}
-<x-household.create-modal/>
-<x-household.edit-modal/>
-
 </body>
 </html>
