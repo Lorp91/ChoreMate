@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Household;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -21,9 +23,37 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('components.household.selector', function ($view) {
-            $households = Auth::user()->households()->get();
-            $view->with('households', $households);
+        // gibt den app-routes household und rooms des users (fuer die sidebar)
+        View::composer('components.layout.app', function ($view) {
+            $user = Auth::user();
+
+            $currentHousehold = null;
+            $currentRooms = collect();
+
+            if ($user) {
+                $routeHousehold = request()->route('household');
+
+                if ($routeHousehold instanceof Household) {
+                    $currentHousehold = $routeHousehold->load('rooms');
+                } elseif ($routeHousehold) {
+                    $currentHousehold = Household::with('rooms')->find($routeHousehold);
+                } else {
+                    $currentHousehold = $user->households()->with('rooms')->first();
+                }
+
+                if ($currentHousehold instanceof Collection) {
+                    $currentHousehold = $currentHousehold->first();
+                }
+
+                if ($currentHousehold) {
+                    $currentRooms = $currentHousehold->rooms;
+                }
+            }
+
+            $view->with([
+                'currentHousehold' => $currentHousehold,
+                'currentRooms' => $currentRooms,
+            ]);
         });
     }
 }
