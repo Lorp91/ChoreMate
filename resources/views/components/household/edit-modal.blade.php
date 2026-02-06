@@ -6,7 +6,7 @@
     <div class="modal-box">
         <h3 class="text-lg font-bold">Name bearbeiten</h3>
         <form
-            method="POST" action="{{ route('household.update') }}" class="mt-2">
+            method="POST" action="{{ route('households.update') }}" class="mt-2">
             @csrf
             @method('PUT')
 

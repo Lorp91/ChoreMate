@@ -2,13 +2,12 @@
 
 use App\Http\Controllers\App\DashboardController;
 use App\Http\Controllers\App\HouseholdController;
+use App\Http\Controllers\App\RoomController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('marketing.landing');
-});
+Route::get('/', fn() => view('marketing.landing'));
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
@@ -23,7 +22,23 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::post('/household', [HouseholdController::class, 'store'])->name('household.store');
-    Route::put('/household', [HouseholdController::class, 'update'])->name('household.update');
-    Route::post('/household/switch', [HouseholdController::class, 'switch'])->name('household.switch');
+    Route::prefix('households')->name('households.')->group(function () {
+        Route::get('/', [HouseholdController::class, 'index'])->name('index');
+        Route::get('/create', [HouseholdController::class, 'create'])->name('create');
+        Route::post('/', [HouseholdController::class, 'store'])->name('store');
+        Route::get('/{household}', [HouseholdController::class, 'show'])->name('show');
+        Route::get('/{household}/edit', [HouseholdController::class, 'edit'])->name('edit');
+        Route::put('/{household}', [HouseholdController::class, 'update'])->name('update');
+        Route::delete('/{household}', [HouseholdController::class, 'destroy'])->name('destroy');
+
+        Route::prefix('/{household}/rooms')->name('rooms.')->group(function () {
+            Route::get('/', [RoomController::class, 'index'])->name('index');
+            Route::get('/create', [RoomController::class, 'create'])->name('create');
+            Route::post('/', [RoomController::class, 'store'])->name('store');
+            Route::get('/{room}', [RoomController::class, 'show'])->name('show');
+            Route::get('/{room}/edit', [RoomController::class, 'edit'])->name('edit');
+            Route::put('/{room}', [RoomController::class, 'update'])->name('update');
+            Route::delete('/{room}', [RoomController::class, 'destroy'])->name('destroy');
+        });
+    });
 });

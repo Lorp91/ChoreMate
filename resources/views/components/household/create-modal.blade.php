@@ -5,7 +5,7 @@
 >
     <div class="modal-box">
         <h3 class="text-lg font-bold">Neuen Haushalt erstellen</h3>
-        <form method="POST" action="{{ route('household.store') }}" class="mt-2 space-y-2">
+        <form method="POST" action="{{ route('households.store') }}" class="mt-2 space-y-2">
             @csrf
 
             <x-form.field name="name" label="Name" placeholder="Ferienwohnung"/>

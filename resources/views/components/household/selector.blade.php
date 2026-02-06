@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('household.switch') }}" class="w-full">
+<form method="POST" action="{{ route('households.switch') }}" class="w-full">
     @csrf
 
     <div class="dropdown dropdown-bottom w-full text-left">
