@@ -24,7 +24,9 @@ class LoginController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended('dashboard');
+        $household = Auth::user()->households()->first();
+
+        return redirect()->intended(route('households.show', $household));
     }
 
     public function destroy(Request $request)
