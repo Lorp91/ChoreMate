@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Household;
+namespace App\Http\Controllers\App;
 
 use App\Enums\HouseholdRole;
 use App\Enums\MembershipStatus;

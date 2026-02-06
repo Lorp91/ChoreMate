@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\App\DashboardController;
+use App\Http\Controllers\App\HouseholdController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Household\HouseholdController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
