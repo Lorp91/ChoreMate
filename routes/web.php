@@ -7,7 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn() => view('marketing.landing'));
+Route::get('/', fn () => view('marketing.landing'));
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'index'])->name('register.index');

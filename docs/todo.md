@@ -23,9 +23,9 @@
 - [x] Mitgliedschaft Model+Migration
   - [x] Beziehungen in Models
 - [x] HaushaltController erstellen
-  - [ ] Authorization mit isOwner()
-  - [ ] update function implementieren
-  - [ ] destroy function implementieren
+  - [x] Authorization mit isOwner()
+  - [x] update function implementieren
+  - [x] destroy function implementieren
 - [x] Views erstellen
   - [ ] edit-modal fertigstellen
     - [ ] input-values fuellen
@@ -56,6 +56,9 @@
 
 ## Phase 5: Benutzeroberflaeche
 
+- [ ] Sidebar auslagern in eigene Datei
+  - [ ] SidebarComposer einrichten (viewComposer mit SidebarDaten)
+  - [ ] Daten in SidebarComposer cachen und limiten
 - [ ] Alle Seiten mit DaisyUI finalisieren
   - [ ] Dashboard
 - [ ] Filterfunktionen

@@ -8,11 +8,26 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Household\StoreHouseHoldRequest;
 use App\Models\Household;
 use App\Models\HouseholdMembership;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HouseholdController extends Controller
 {
+    use AuthorizesRequests;
+
+    public function index()
+    {
+        $households = Auth::user()->households;
+
+        return view('app.household.index', compact('households'));
+    }
+
+    public function create()
+    {
+        return view('app.household.create');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -32,8 +47,22 @@ class HouseholdController extends Controller
         session(['current_household_id' => $household->id]);
 
         return redirect()
-            ->back()
+            ->route('households.index')
             ->with('success', 'Haushalt wurde erfolgreich erstellt.');
+    }
+
+    public function show(Household $household)
+    {
+        $this->authorize('view', $household);
+
+        return view('app.dashboard', compact('household'));
+    }
+
+    public function edit(Household $household)
+    {
+        $this->authorize('view', $household);
+
+        return view('app.household.edit', compact('household'));
     }
 
     /**
@@ -41,11 +70,20 @@ class HouseholdController extends Controller
      */
     public function update(Request $request, Household $household)
     {
-        dd($request->all());
-        // isOwner checken
-        // input validieren
-        // household update
-        // redirect
+        $this->authorize('manage', $household);
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+        $household->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()
+            ->back()
+            ->with('success', 'Haushalt wurde erfolgreich aktualisiert.');
+
     }
 
     /**
@@ -53,35 +91,12 @@ class HouseholdController extends Controller
      */
     public function destroy(Household $household)
     {
-        $isOwner = $household->owner()
-            ->whereKey(Auth::id())
-            ->exists();
-
-        abort_unless($isOwner, 403);
+        $this->authorize('manage', $household);
 
         $household->delete();
 
         return redirect()
-            ->back()
+            ->route('households.index')
             ->with('success', 'Haushalt wurde erfolgreich entfernt.');
-    }
-
-    public function switch(Request $request)
-    {
-        $request->validate([
-            'household_id' => ['required', 'integer', 'exists:households,id'],
-        ]);
-
-        $householdId = $request->household_id;
-
-        $household = Household::findOrFail($householdId);
-
-        if (! $household->users()->where('user_id', Auth::id())->exists()) {
-            abort(403, 'Du bist kein Mitglied dieses Haushaltes');
-        }
-
-        session(['current_household_id' => $household->id]);
-
-        return redirect()->back();
     }
 }
