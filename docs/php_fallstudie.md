@@ -393,6 +393,10 @@ Insgesamt stellt das Projekt eine solide Grundlage dar, auf der sowohl funktiona
 - kapitel 5-7 auf ist zustand nach der bearbeitung schreiben
 - UML-Diagramme erstellen und dazu packen
 - codebeispiele?
+- HouseholdSelector aufgegeben schreiben
+  - habe "modernen" aufbau nicht hinbekommen und wegen zeitdruck dann zu "normalen" aufbau gewechselt
+  - richtiger ansatz waere wohl mit react/vue und dann inertia?
+  - haette ich das gewusst haette ich von anfang an den auf seiten getrennten weg genommen
 
 ```css
 @plugin "daisyui/theme" {
