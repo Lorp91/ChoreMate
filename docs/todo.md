@@ -37,7 +37,7 @@
 
 - [x] Raum Model+Migration
   - [x] Beziehungen in Model
-- [ ] RaumController erstellen
+- [x] RaumController erstellen
 - [ ] Views erstellen
 - [ ] Tests schreiben
 

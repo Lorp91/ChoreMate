@@ -397,6 +397,8 @@ Insgesamt stellt das Projekt eine solide Grundlage dar, auf der sowohl funktiona
   - habe "modernen" aufbau nicht hinbekommen und wegen zeitdruck dann zu "normalen" aufbau gewechselt
   - richtiger ansatz waere wohl mit react/vue und dann inertia?
   - haette ich das gewusst haette ich von anfang an den auf seiten getrennten weg genommen
+- RoomPolicy entfernt und habe jetzt HouseholdPolicy als kern fuer authorization
+  - view -> user, manage -> admin/owner
 
 ```css
 @plugin "daisyui/theme" {
