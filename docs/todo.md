@@ -38,7 +38,7 @@
 - [x] Raum Model+Migration
   - [x] Beziehungen in Model
 - [x] RaumController erstellen
-- [ ] Views erstellen
+- [x] Views erstellen
 - [ ] Tests schreiben
 
 ## Phase 4: Aufgaben
