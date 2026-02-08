@@ -5,7 +5,7 @@ namespace App\Http\Controllers\App;
 use App\Enums\HouseholdRole;
 use App\Enums\MembershipStatus;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Household\StoreHouseHoldRequest;
+use App\Http\Requests\App\Household\StoreHouseHoldRequest;
 use App\Models\Household;
 use App\Models\HouseholdMembership;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
