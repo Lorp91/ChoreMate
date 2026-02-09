@@ -61,4 +61,9 @@ class User extends Authenticatable
             ->withPivot('role', 'status')
             ->withTimestamps();
     }
+
+    public function tasks(): HasMany
+    {
+        return $this->hasMany(Task::class);
+    }
 }

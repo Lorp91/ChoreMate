@@ -44,7 +44,7 @@
 ## Phase 4: Aufgaben
 
 - [x] Aufgabe Model+Migration
-  - [ ] Beziehungen in Model
+  - [x] Beziehungen in Model
 - [ ] completedTask Model+Migration
   - [ ] Beziehungen in Models
   - [ ] in completeTask completedTask erstellen
