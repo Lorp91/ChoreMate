@@ -56,7 +56,6 @@ class Task extends Model
         return $this->hasMany(CompletedTask::class);
     }
 
-
     // logic
 
     public function complete(User $user)

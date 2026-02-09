@@ -68,7 +68,7 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTaskRequest $request,Household $household, Room $room, Task $task)
+    public function update(UpdateTaskRequest $request, Household $household, Room $room, Task $task)
     {
         $task->update($request->validated());
 

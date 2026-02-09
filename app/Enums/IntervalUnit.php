@@ -21,6 +21,6 @@ enum IntervalUnit: string
 
     public static function values(): array
     {
-        return array_map(fn(IntervalUnit $unit) => $unit->value, IntervalUnit::cases());
+        return array_map(fn (IntervalUnit $unit) => $unit->value, IntervalUnit::cases());
     }
 }

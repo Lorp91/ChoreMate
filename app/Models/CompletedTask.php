@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class CompletedTask extends Pivot
 {
     protected $table = 'completed_tasks';
+
     protected $casts = [
         'completed_at' => 'datetime',
     ];
+
     protected $fillable = [
         'user_id',
         'completed_at',
     ];
-
 
     // relations
 

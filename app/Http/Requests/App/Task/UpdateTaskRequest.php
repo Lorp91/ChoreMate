@@ -4,7 +4,6 @@ namespace App\Http\Requests\App\Task;
 
 use App\Enums\IntervalUnit;
 use App\Enums\MembershipStatus;
-use App\Models\HouseholdMembership;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -37,7 +36,7 @@ class UpdateTaskRequest extends FormRequest
                 Rule::exists('users', 'id'),
                 Rule::exists('household_memberships', 'user_id')
                     ->where('household_id', $this->route('household')->id)
-                    ->where('status', MembershipStatus::ACTIVE->label())
+                    ->where('status', MembershipStatus::ACTIVE->label()),
             ],
         ];
     }
