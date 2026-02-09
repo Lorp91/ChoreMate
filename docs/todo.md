@@ -43,8 +43,11 @@
 
 ## Phase 4: Aufgaben
 
-- [ ] Aufgabe Model+Migration
+- [x] Aufgabe Model+Migration
   - [ ] Beziehungen in Model
+- [ ] completedTask Model+Migration
+  - [ ] Beziehungen in Models
+  - [ ] in completeTask completedTask erstellen
 - [ ] AufgabenVorlage Model+Migration
   - [ ] Methode erstelleAufgabe()
 - [ ] AufgabeController erstellen
