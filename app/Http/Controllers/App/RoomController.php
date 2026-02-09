@@ -62,7 +62,9 @@ class RoomController extends Controller
     {
         $this->authorize('view', $household);
 
-        return view('app.room.show', compact('household', 'room'));
+        $tasks = $room->tasks;
+
+        return view('app.room.show', compact('household', 'room', 'tasks'));
     }
 
     /**

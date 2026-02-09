@@ -54,7 +54,7 @@
   - [x] CRUD
   - [x] Aufgabe erledigen() -> im Model
   - [x] Automatische Neuterminierung -> im Model
-- [ ] Views erstellen
+- [x] Views erstellen
 - [ ] Tests schreiben
 
 ## Phase 5: Benutzeroberflaeche
