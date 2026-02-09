@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->date('due_date')->nullable();
             $table->integer('repeat_interval')->nullable();
             $table->enum('interval_unit', IntervalUnit::cases())->nullable();
