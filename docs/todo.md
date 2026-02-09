@@ -50,10 +50,10 @@
   - [x] in completeTask completedTask erstellen
 - [ ] AufgabenVorlage Model+Migration
   - [ ] Methode erstelleAufgabe()
-- [ ] AufgabeController erstellen
-  - [ ] CRUD
-  - [ ] Aufgabe erledigen()
-  - [ ] Automatische Neuterminierung
+- [x] AufgabeController erstellen
+  - [x] CRUD
+  - [x] Aufgabe erledigen() -> im Model
+  - [x] Automatische Neuterminierung -> im Model
 - [ ] Views erstellen
 - [ ] Tests schreiben
 
@@ -65,6 +65,8 @@
 - [ ] Alle Seiten mit DaisyUI finalisieren
   - [ ] Dashboard
 - [ ] Filterfunktionen
+- [ ] Fehlermeldungen schreiben
+  - [ ] TaskRequests
 
 ## Phase 6: Automatisierung und Hintergrundprozesse
 
