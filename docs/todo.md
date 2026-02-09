@@ -45,7 +45,7 @@
 
 - [x] Aufgabe Model+Migration
   - [x] Beziehungen in Model
-- [ ] completedTask Model+Migration
+- [x] completedTask Model+Migration
   - [ ] Beziehungen in Models
   - [ ] in completeTask completedTask erstellen
 - [ ] AufgabenVorlage Model+Migration
@@ -72,6 +72,8 @@
 
 ## Phase 7: Tests und Qualitaetssicherung
 
+- [ ] EloquentModels und relations pruefen:
+  - [ ] manytomany und pivots genauer gucken
 - [ ] Unit Tests
 - [ ] Feature Tests
 - [ ] Browser Tests
