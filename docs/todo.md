@@ -46,7 +46,7 @@
 - [x] Aufgabe Model+Migration
   - [x] Beziehungen in Model
 - [x] completedTask Model+Migration
-  - [ ] Beziehungen in Models
+  - [x] Beziehungen in Models
   - [ ] in completeTask completedTask erstellen
 - [ ] AufgabenVorlage Model+Migration
   - [ ] Methode erstelleAufgabe()

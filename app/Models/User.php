@@ -66,4 +66,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+
+    public function completedTasks(): belongsToMany
+    {
+        return $this->belongsToMany(Task::class, 'completed_tasks')
+            ->using(CompletedTask::class)
+            ->withPivot('completed_at')
+            ->withTimestamps();
+    }
+
+    public function completions(): HasMany
+    {
+        return $this->hasMany(CompletedTask::class);
+    }
 }

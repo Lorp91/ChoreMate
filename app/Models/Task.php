@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Task extends Model
 {
@@ -28,9 +30,22 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function completedByUsers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'completed_tasks')
+            ->using(CompletedTask::class)
+            ->withPivot(['completed_at'])
+            ->withTimestamps();
+    }
+
     public function room(): BelongsTo
     {
         return $this->belongsTo(Room::class);
+    }
+
+    public function completions(): HasMany
+    {
+        return $this->hasMany(CompletedTask::class);
     }
 
 
