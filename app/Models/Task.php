@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Enums\IntervalUnit;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 
 class Task extends Model
 {
@@ -21,6 +23,12 @@ class Task extends Model
         'interval_unit',
         'room_id',
         'user_id',
+    ];
+
+    protected $casts = [
+        'due_date' => 'datetime',
+        'repeat_interval' => 'integer',
+        'interval_unit' => IntervalUnit::class,
     ];
 
     // relations
@@ -51,14 +59,33 @@ class Task extends Model
 
     // logic
 
-    public function completeTask()
+    public function complete(User $user)
     {
-        // TODO: bauen ruft (wenn interval) setNext auf
-        // TODO: erstellt completed_task mit now()
+        return DB::transaction(function () use ($user) {
+            $completion = $this->completions()->create([
+                'user_id' => $user->id,
+                'completed_at' => now(),
+            ]);
+
+            if ($this->repeat_interval && $this->interval_unit) {
+                $this->setNextDueDate();
+            }
+
+            return $completion;
+        });
     }
 
     private function setNextDueDate()
     {
-        // TODO: bauen macht due_date auf neues date mit carbon
+        $dueDate = $this->due_date->copy();
+
+        $next = match ($this->interval_unit) {
+            IntervalUnit::DAY => $dueDate->addDays($this->repeat_interval),
+            IntervalUnit::WEEK => $dueDate->addWeeks($this->repeat_interval),
+            IntervalUnit::MONTH => $dueDate->addMonths($this->repeat_interval),
+            IntervalUnit::YEAR => $dueDate->addYears($this->repeat_interval),
+        };
+
+        $this->update(['due_date' => $next]);
     }
 }

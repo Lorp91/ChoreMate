@@ -11,6 +11,10 @@ class CompletedTask extends Pivot
     protected $casts = [
         'completed_at' => 'datetime',
     ];
+    protected $fillable = [
+        'user_id',
+        'completed_at',
+    ];
 
 
     // relations

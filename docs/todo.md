@@ -47,7 +47,7 @@
   - [x] Beziehungen in Model
 - [x] completedTask Model+Migration
   - [x] Beziehungen in Models
-  - [ ] in completeTask completedTask erstellen
+  - [x] in completeTask completedTask erstellen
 - [ ] AufgabenVorlage Model+Migration
   - [ ] Methode erstelleAufgabe()
 - [ ] AufgabeController erstellen
@@ -92,5 +92,7 @@
 
 ## Phase 10: Erweiterungen/Ausblick
 
+- [ ] aufgaben rueckgaengig machen? (auf nicht completed von completed)
+  - wie loescht man aus completedTask den richtigen?
 - [ ] Statistiken ueber Aufgaben
 - [ ] weitere Ideen formulieren/verarbeiten
