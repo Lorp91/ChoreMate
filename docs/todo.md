@@ -59,8 +59,8 @@
 
 ## Phase 5: Benutzeroberflaeche
 
-- [ ] Sidebar auslagern in eigene Datei
-  - [ ] SidebarComposer einrichten (viewComposer mit SidebarDaten)
+- [x] Sidebar auslagern in eigene Datei
+  - [x] SidebarComposer einrichten (viewComposer mit SidebarDaten)
   - [ ] Daten in SidebarComposer cachen und limiten
 - [ ] Alle Seiten mit DaisyUI finalisieren
   - [ ] Dashboard

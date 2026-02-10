@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // gibt den app-routes household und rooms des users (fuer die sidebar)
-        View::composer('components.layout.app', function ($view) {
+        // gibt der sidebar household und rooms des users
+        View::composer('components.layout.sidebar', function ($view) {
             $user = Auth::user();
 
             $currentHousehold = null;
