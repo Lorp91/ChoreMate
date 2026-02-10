@@ -1,29 +1,25 @@
 <x-layout.app title="Haushalte">
-    <h2 class="text-xl">alle haushalte ansehen</h2>
-    <ul class="mt-4">
+    <div class="p-10 max-w-5xl flex flex-col gap-4">
         @foreach($households as $household)
-            <li>
-                <div class="py-4 max-w-lg flex justify-between items-center">
-                    <a
-                        href="{{ route('households.show', $household) }}"
-                    >
+            <div class="card card-border bg-base-100">
+                <div class="card-body flex flex-row justify-between items-center">
+                    <a href="{{ route('households.dashboard', $household) }}"
+                       class="flex-1 font-semibold text-lg">
                         {{ $household->name }}
                     </a>
-                    <a
-                        href="{{ route('households.edit', $household) }}"
-                        class="btn btn-secondary"
-                    >
-                        Edit
+
+                    <a href="{{ route('households.edit', $household) }}"
+                       class="btn btn-sm btn-ghost">
+                        <x-icon.pencil class="size-6 text-info-content"/>
                     </a>
                 </div>
-
-            </li>
+            </div>
         @endforeach
-        <li>
-            <a
-                href="{{ route('households.create') }}"
-                class="btn btn-primary"
-            >+ neuen haushalt</a>
-        </li>
-    </ul>
+        <a href="{{ route('households.create') }}"
+           class="card card-border bg-base-100">
+            <div class="card-body">
+                <h2 class="card-title text-success-content font-medium justify-center">+ Haushalt erstellen</h2>
+            </div>
+        </a>
+    </div>
 </x-layout.app>
