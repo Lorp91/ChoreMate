@@ -1,6 +1,6 @@
 @props(['currentHousehold', 'currentRooms'])
 
-<div class="menu bg-base-200 min-h-full w-sm p-4">
+<div class="menu bg-base-200 min-h-full w-xs p-4">
     <div class="flex items-center gap-2">
         <x-icon.logo class="w-12"/>
         <h1 class="text-4xl font-extrabold">ChoreMate</h1>
