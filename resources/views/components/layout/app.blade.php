@@ -18,7 +18,7 @@
 
         <x-layout.navbar title="{{ $title }}"/>
 
-        <main class="p-5">
+        <main class="p-10">
             {{ $slot }}
         </main>
     </div>

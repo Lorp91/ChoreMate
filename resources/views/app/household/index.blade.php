@@ -1,5 +1,5 @@
 <x-layout.app title="Haushalte">
-    <div class="p-10 max-w-5xl flex flex-col gap-4">
+    <div class="max-w-5xl flex flex-col gap-4">
         @foreach($households as $household)
             <div class="card card-border bg-base-100">
                 <div class="card-body flex flex-row justify-between items-center">
