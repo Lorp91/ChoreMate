@@ -21,8 +21,6 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::delete('/logout', [LoginController::class, 'destroy'])->name('login.destroy');
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
     Route::prefix('households')->name('households.')->group(function () {
         Route::get('/', [HouseholdController::class, 'index'])->name('index');
         Route::get('/create', [HouseholdController::class, 'create'])->name('create');
@@ -31,6 +29,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/{household}/edit', [HouseholdController::class, 'edit'])->name('edit');
         Route::put('/{household}', [HouseholdController::class, 'update'])->name('update');
         Route::delete('/{household}', [HouseholdController::class, 'destroy'])->name('destroy');
+
+        Route::get('/{household}/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::prefix('/{household}/rooms')->name('rooms.')->group(function () {
             Route::get('/', [RoomController::class, 'index'])->name('index');
