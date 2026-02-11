@@ -62,6 +62,7 @@
 - [x] Sidebar auslagern in eigene Datei
   - [x] SidebarComposer einrichten (viewComposer mit SidebarDaten)
   - [ ] Daten in SidebarComposer cachen und limiten
+- [ ] Seiten mit Task darstellung finalisieren
 - [ ] Alle Seiten mit DaisyUI finalisieren
   - [ ] Dashboard
 - [ ] Filterfunktionen
