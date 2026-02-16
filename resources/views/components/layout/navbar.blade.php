@@ -1,22 +1,20 @@
 @props(['title'])
 
-<div class="navbar bg-base-100 shadow-sm">
-    <div class="flex-none lg:hidden">
+<div class="bg-base-100 shadow-sm navbar">
+    <div class="lg:hidden flex-none">
         <label for="my-drawer" class="btn btn-square btn-ghost drawer-button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                 class="inline-block h-5 w-5 stroke-current">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"></path>
+                class="inline-block stroke-current w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
         </label>
     </div>
     <div class="flex-1">
-        <a class="ml-4 text-xl font-semibold">{{ $title }}</a>
+        <a class="ml-4 font-semibold text-xl">{{ $title }}</a>
     </div>
     <div class="flex-none">
-        <form method="POST" action="{{ route('login.destroy') }}">
+        <form method="POST" action="{{ route('logout') }}">
             @csrf
-            @method('DELETE')
 
             <button type="submit" class="btn btn-warning">Logout</button>
         </form>

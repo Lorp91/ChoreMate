@@ -3,13 +3,14 @@
 ## Refactor
 
 - [ ] nicht benutzte Dateien loeschen
+    - [ ] Pest Browser deinstallieren
 - [ ] Ordnerstruktur
 
-## Auth
+## Auth -> auf Fortify geaendert
 
-- [ ] Alles nochmal pruefen und auf Standard bringen -> mit Breeze vergleichen?
-    - [ ] Namen von Klassen und Functions
-    - [ ] Controller
+- [x] Alles nochmal pruefen und auf Standard bringen -> mit Breeze vergleichen?
+    - [x] Namen von Klassen und Functions
+    - [x] Controller
 
 ## Household
 

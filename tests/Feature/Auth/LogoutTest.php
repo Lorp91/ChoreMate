@@ -6,7 +6,7 @@ it('logs out an authenticated user', function () {
     $user = User::factory()->create([]);
 
     $this->actingAs($user)
-        ->delete(route('login.destroy'))
+        ->post(route('logout'))
         ->assertRedirect('/');
 
     $this->assertGuest();

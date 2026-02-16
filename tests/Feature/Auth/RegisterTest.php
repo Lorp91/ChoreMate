@@ -5,11 +5,12 @@ use App\Models\User;
 use function Pest\Laravel\post;
 
 it('can create an account', function () {
-    post(route('register.store'), [
+    post(route('register'), [
         'name' => 'Max Mustermann',
         'email' => 'max@mustermann.de',
         'password' => 'password',
-    ])->assertRedirect(route('dashboard'));
+        'password_confirmation' => 'password',
+    ])->assertRedirect(route('households.index'));
 
     $this->assertAuthenticated();
 
@@ -17,7 +18,7 @@ it('can create an account', function () {
 });
 
 it('it rejects invalid input', function () {
-    post(route('register.store'), [
+    post(route('register'), [
         'name' => '',
         'email' => 'keine-echte-mail',
         'password' => 'pass',
@@ -29,7 +30,7 @@ it('it rejects invalid input', function () {
 it('requires a unique email', function () {
     User::factory()->create(['email' => 'max@mustermann.de']);
 
-    post(route('register.store'), [
+    post(route('register'), [
         'name' => 'Max Mustermann',
         'email' => 'max@mustermann.de',
         'password' => 'password',
@@ -42,6 +43,6 @@ it('redirects already authenticated user', function () {
     $user = User::factory()->create([]);
 
     $this->actingAs($user)
-        ->get(route('register.index'))
-        ->assertRedirect(route('dashboard'));
+        ->get(route('register'))
+        ->assertRedirect(route('households.index'));
 });
