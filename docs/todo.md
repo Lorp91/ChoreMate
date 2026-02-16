@@ -1,101 +1,88 @@
 # Taskliste fuer ChoreMate
 
-## Phase 0: Vorbereitung und Setup
+## Refactor
 
-- [x] Projektstruktur anlegen
-  - [x] Git initialisieren
-- [x] Datenbank vorbereiten
-- [x] Frontend-Basis
-  - [x] Tailwind + DaisyUI installieren
-  - [x] Tailwind + DaisyUI konfigurieren
+- [ ] nicht benutzte Dateien loeschen
+- [ ] Ordnerstruktur
 
-## Phase 1: Authentifizierung
+## Auth
 
-- [x] User Model erweitern
-- [x] Registrierung hinzufuegen
-- [x] Login hinzufuegen
-- [x] Middleware und protected Routes einrichten
-- [x] Tests schreiben
+- [ ] Alles nochmal pruefen und auf Standard bringen -> mit Breeze vergleichen?
+    - [ ] Namen von Klassen und Functions
+    - [ ] Controller
 
-## Phase 2: Haushaltsverwaltung
+## Household
 
-- [x] Haushalt Model+Migration
-- [x] Mitgliedschaft Model+Migration
-  - [x] Beziehungen in Models
-- [x] HaushaltController erstellen
-  - [x] Authorization mit isOwner()
-  - [x] update function implementieren
-  - [x] destroy function implementieren
-- [x] Views erstellen
-  - [ ] edit-modal fertigstellen
-    - [ ] input-values fuellen
-    - [ ] delete form implementieren
-    - [ ] eigene form errors(gerade beides 'name')
-- [ ] Tests schreiben
+- [ ] Migration
+    - [ ] Pivottabellenname household_user
+- [ ] Factory
+- [ ] Seeding
+- [ ] Model
+    - [ ] Beziehungen -> Pivots
+    - [ ] Logik
+- [ ] Routing
+    - [ ] Ressource -> shallow
+- [ ] Controller
+    - [ ] Policy
+    - [ ] Requests
+    - [ ] Services
+    - [ ] Actions
+- [ ] Views
+- [ ] Tests
 
-## Phase 3: Raum
+## Room
 
-- [x] Raum Model+Migration
-  - [x] Beziehungen in Model
-- [x] RaumController erstellen
-- [x] Views erstellen
-- [ ] Tests schreiben
+- [ ] Migration
+- [ ] Factory
+- [ ] Seeding
+- [ ] Model
+    - [ ] Beziehungen
+    - [ ] Logik
+- [ ] Routing
+    - [ ] Ressource -> shallow
+- [ ] Controller
+    - [ ] Policy
+    - [ ] Requests
+    - [ ] Services
+    - [ ] Actions
+- [ ] Views
+- [ ] Tests
 
-## Phase 4: Aufgaben
+## Task
 
-- [x] Aufgabe Model+Migration
-  - [x] Beziehungen in Model
-- [x] completedTask Model+Migration
-  - [x] Beziehungen in Models
-  - [x] in completeTask completedTask erstellen
-- [ ] AufgabenVorlage Model+Migration
-  - [ ] Methode erstelleAufgabe()
-- [x] AufgabeController erstellen
-  - [x] CRUD
-  - [x] Aufgabe erledigen() -> im Model
-  - [x] Automatische Neuterminierung -> im Model
-- [x] Views erstellen
-- [ ] Tests schreiben
+- [ ] Migration
+- [ ] Factory
+- [ ] Seeding
+- [ ] Model
+    - [ ] Beziehungen
+    - [ ] Logik
+- [ ] Routing
+    - [ ] Ressource -> shallow
+- [ ] Controller
+    - [ ] Policy
+    - [ ] Requests
+    - [ ] Services
+    - [ ] Actions
+- [ ] Views
+- [ ] Tests
 
-## Phase 5: Benutzeroberflaeche
+## Benutzeroberflaeche
 
-- [x] Sidebar auslagern in eigene Datei
-  - [x] SidebarComposer einrichten (viewComposer mit SidebarDaten)
-  - [ ] Daten in SidebarComposer cachen und limiten
-- [ ] Seiten mit Task darstellung finalisieren
-- [ ] Alle Seiten mit DaisyUI finalisieren
-  - [ ] Dashboard
+- [ ] Sidebar Class Component erstellen
+    - [ ] Class Component anstatt View Composer testen
+    - [ ] falls View Composer bleibt cachen und limiten
+- [ ] Dashboard
 - [ ] Filterfunktionen
-- [ ] Fehlermeldungen schreiben
-  - [ ] TaskRequests
 
-## Phase 6: Automatisierung und Hintergrundprozesse
-
-- [ ] EventListener ErstelleNeueAufgabeWennWiederkehrend()
-
-## Phase 7: Tests und Qualitaetssicherung
-
-- [ ] EloquentModels und relations pruefen:
-  - [ ] manytomany und pivots genauer gucken
-- [ ] Unit Tests
-- [ ] Feature Tests
-- [ ] Browser Tests
-- [ ] Manuelle Tests
-
-## Phase 8: Deployment
+## Deployment
 
 - [ ] Docker/Docker Compose
 - [ ] Production Build
 - [ ] Dokumentation
 
-## Phase 9: Fallstudie
-
-- [ ] Fallstudie Dokument fertigstellen
-- [ ] Praesentation vorbereiten
-
-## Phase 10: Erweiterungen/Ausblick
+## Erweiterungen/Ausblick
 
 - [ ] aufgaben rueckgaengig machen? (auf nicht completed von completed)
-  - wie loescht man aus completedTask den richtigen?
+    - wie loescht man aus completedTask den richtigen?
 - [ ] Statistiken ueber Aufgaben
 - [ ] weitere Ideen formulieren/verarbeiten
