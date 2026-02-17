@@ -19,7 +19,7 @@
 
 - [x] Migration
     - [x] Pivottabellenname household_user
-- [ ] Factory
+- [x] Factory
 - [ ] Seeding
 - [ ] Model
     - [ ] Beziehungen -> Pivots
@@ -99,3 +99,4 @@
 ## Sonstiges
 
 - [ ] Database-Queries gucken und Anzahl verringern - clean machen
+- [ ] Seeden nochmal richtig machen das nicht mehr erstellt wird als man schreibt
