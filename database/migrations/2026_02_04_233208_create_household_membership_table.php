@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('household_user', function (Blueprint $table) {
+        Schema::create('household_membership', function (Blueprint $table) {
             $table->id();
             $table->foreignId('household_id')
                 ->constrained()
@@ -23,6 +23,13 @@ return new class extends Migration
                 ->cascadeOnDelete();
             $table->string('role')->default(HouseholdRole::MEMBER->label());
             $table->string('status')->default(MembershipStatus::INVITED->label());
+            $table->string('invite_token')->nullable()->unique();
+
+            // $table->timestamp('invited_at')->nullable();
+            // $table->timestamp('accepted_at')->nullable();
+            // $table->timestamp('declined_at')->nullable();
+            // $table->timestamp('removed_at')->nullable();
+
             $table->timestamps();
 
             $table->unique(['household_id', 'user_id']);
@@ -34,6 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('household_user');
+        Schema::dropIfExists('household_membership');
     }
 };

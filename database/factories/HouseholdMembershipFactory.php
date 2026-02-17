@@ -7,6 +7,7 @@ use App\Enums\MembershipStatus;
 use App\Models\Household;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\HouseholdMembership>
@@ -25,6 +26,7 @@ class HouseholdMembershipFactory extends Factory
             'household_id' => Household::factory(),
             'role' => HouseholdRole::MEMBER->label(),
             'status' => MembershipStatus::ACTIVE->label(),
+            'invite_token' => Str::upper(Str::random(8)),
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,8 @@ class HouseholdFactory extends Factory
     {
         return [
             'name' => fake()->lastName(),
+            'description' => fake()->sentence(),
+            'created_by' => User::factory(),
         ];
     }
 }

@@ -27,7 +27,7 @@ class Household extends Model
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'household_memberships')
-            ->withPivot('role', 'status')
+            ->withPivot(['role', 'status'])
             ->withTimestamps();
     }
 

@@ -18,6 +18,21 @@ class HouseholdMembership extends Model
         'household_id',
         'role',
         'status',
+        'invited_by',
+        'invite_token',
+        // 'invited_at',
+        // 'accepted_at',
+        // 'declined_at',
+        // 'removed_at',
+    ];
+
+    protected $casts = [
+        'role' => HouseholdRole::class,
+        'status' => MembershipStatus::class,
+        // 'invited_at' => 'datetime',
+        // 'accepted_at' => 'datetime',
+        // 'declined_at' => 'datetime',
+        // 'removed_at' => 'datetime',
     ];
 
     // relations

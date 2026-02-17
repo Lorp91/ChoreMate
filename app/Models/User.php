@@ -58,7 +58,7 @@ class User extends Authenticatable
     public function households(): BelongsToMany
     {
         return $this->belongsToMany(Household::class, 'household_memberships')
-            ->withPivot('role', 'status')
+            ->withPivot(['role', 'status'])
             ->withTimestamps();
     }
 
