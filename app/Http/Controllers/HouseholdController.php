@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\App;
+namespace App\Http\Controllers;
 
 use App\Enums\HouseholdRole;
 use App\Enums\MembershipStatus;
@@ -20,12 +20,12 @@ class HouseholdController extends Controller
     {
         $households = Auth::user()->households;
 
-        return view('app.household.index', compact('households'));
+        return view('pages.households.index', compact('households'));
     }
 
     public function create()
     {
-        return view('app.household.create');
+        return view('pages.households.create');
     }
 
     /**
@@ -55,14 +55,14 @@ class HouseholdController extends Controller
     {
         $this->authorize('view', $household);
 
-        return view('app.dashboard', compact('household'));
+        return view('pages.dashboard.index', compact('household'));
     }
 
     public function edit(Household $household)
     {
         $this->authorize('view', $household);
 
-        return view('app.household.edit', compact('household'));
+        return view('pages.households.edit', compact('household'));
     }
 
     /**

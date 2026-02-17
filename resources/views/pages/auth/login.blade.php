@@ -1,4 +1,4 @@
-<x-layout.auth title=" - Login">
+<x-layout.guest title=" - Login">
     <div class="card">
         <h2 class="text-3xl">Login</h2>
         <form method="POST" action="/login" class="space-y-4 mt-10">
@@ -10,4 +10,4 @@
             <button type="submit" class="mt-2 w-full btn btn-primary">Login</button>
         </form>
     </div>
-</x-layout.auth>
+</x-layout.guest>

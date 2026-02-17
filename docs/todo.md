@@ -72,9 +72,14 @@
 
 ## Benutzeroberflaeche
 
-- [ ] Sidebar Class Component erstellen
-    - [ ] Class Component anstatt View Composer testen
-    - [ ] falls View Composer bleibt cachen und limiten
+- [ ] Sidebar fixen
+    - [ ] Daten kommen ueber Layout bzw Controller des Views? (testen)
+    - [ ] Sidebar Class Component erstellen
+        - [ ] Class Component anstatt View Composer testen
+        - [ ] falls View Composer bleibt cachen und limiten
+    - [ ] Sortierungen der Raeume steuern
+- [ ] Ueberlegen welche Pages wirklich gebraucht werden
+    - [ ] Ablaeufe designen? User-Stories bzw User-Flows/Journey
 - [ ] Dashboard
 - [ ] Filterfunktionen
 
@@ -90,3 +95,7 @@
     - wie loescht man aus completedTask den richtigen?
 - [ ] Statistiken ueber Aufgaben
 - [ ] weitere Ideen formulieren/verarbeiten
+
+## Sonstiges
+
+- [ ] Database-Queries gucken und Anzahl verringern - clean machen

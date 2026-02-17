@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\App\DashboardController;
-use App\Http\Controllers\App\HouseholdController;
-use App\Http\Controllers\App\RoomController;
-use App\Http\Controllers\App\TaskController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HouseholdController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn () => view('marketing.landing'));
+Route::get('/', fn () => view('pages.marketing.landing'));
 
 Route::middleware('auth')->group(function () {
     Route::prefix('households')->name('households.')->group(function () {

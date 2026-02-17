@@ -1,4 +1,4 @@
-<x-layout.auth title=" - Registrieren">
+<x-layout.guest title=" - Registrieren">
     <div class="card">
         <h2 class="text-3xl">Registrieren</h2>
         <form method="POST" action="{{ route('register') }}" class="space-y-4 mt-10">
@@ -12,4 +12,4 @@
             <button type="submit" class="mt-2 w-full btn btn-primary">Registrieren</button>
         </form>
     </div>
-</x-layout.auth>
+</x-layout.guest>

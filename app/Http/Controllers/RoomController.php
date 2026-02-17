@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\App;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Household;
@@ -21,7 +21,7 @@ class RoomController extends Controller
 
         $rooms = $household->rooms;
 
-        return view('app.room.index', compact('household', 'rooms'));
+        return view('pages.rooms.index', compact('household', 'rooms'));
     }
 
     /**
@@ -31,7 +31,7 @@ class RoomController extends Controller
     {
         $this->authorize('manage', $household);
 
-        return view('app.room.create', compact('household'));
+        return view('pages.rooms.create', compact('household'));
     }
 
     /**
@@ -64,7 +64,7 @@ class RoomController extends Controller
 
         $tasks = $room->tasks;
 
-        return view('app.room.show', compact('household', 'room', 'tasks'));
+        return view('pages.rooms.show', compact('household', 'room', 'tasks'));
     }
 
     /**
@@ -74,7 +74,7 @@ class RoomController extends Controller
     {
         $this->authorize('manage', $household);
 
-        return view('app.room.edit', compact('household', 'room'));
+        return view('pages.rooms.edit', compact('household', 'room'));
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\App;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\Task\StoreTaskRequest;
@@ -30,7 +30,7 @@ class TaskController extends Controller
     {
         $this->authorize('view', $household);
 
-        return view('app.task.create', compact('household', 'room'));
+        return view('pages.tasks.create', compact('household', 'room'));
     }
 
     /**
@@ -52,7 +52,7 @@ class TaskController extends Controller
     {
         $this->authorize('view', $household);
 
-        return view('app.task.show', compact('household', 'room', 'task'));
+        return view('pages.tasks.show', compact('household', 'room', 'task'));
     }
 
     /**
@@ -62,7 +62,7 @@ class TaskController extends Controller
     {
         $this->authorize('manage', $household);
 
-        return view('app.task.edit', compact('household', 'room', 'task'));
+        return view('pages.tasks.edit', compact('household', 'room', 'task'));
     }
 
     /**
