@@ -17,8 +17,8 @@
 
 ## Household
 
-- [ ] Migration
-    - [ ] Pivottabellenname household_user
+- [x] Migration
+    - [x] Pivottabellenname household_user
 - [ ] Factory
 - [ ] Seeding
 - [ ] Model

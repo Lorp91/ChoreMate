@@ -13,17 +13,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('household_memberships', function (Blueprint $table) {
+        Schema::create('household_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('household_id')
-                ->constrained('households')
+                ->constrained()
                 ->cascadeOnDelete();
             $table->foreignId('user_id')
-                ->constrained('users')
+                ->constrained()
                 ->cascadeOnDelete();
             $table->string('role')->default(HouseholdRole::MEMBER->label());
             $table->string('status')->default(MembershipStatus::INVITED->label());
             $table->timestamps();
+
+            $table->unique(['household_id', 'user_id']);
         });
     }
 
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('household_memberships');
+        Schema::dropIfExists('household_user');
     }
 };
