@@ -5,6 +5,8 @@
 - [ ] nicht benutzte Dateien loeschen
     - [ ] Pest Browser deinstallieren
 - [ ] Ordnerstruktur
+    - [x] Views
+    - [ ] App-Ordner
 
 ## Auth -> auf Fortify geaendert
 
