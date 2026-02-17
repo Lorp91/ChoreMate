@@ -3,7 +3,7 @@
 ## Refactor
 
 - [ ] nicht benutzte Dateien loeschen
-    - [ ] Pest Browser deinstallieren
+    - [x] Pest Browser deinstallieren
 - [x] Ordnerstruktur
     - [x] Views
     - [x] App-Ordner
