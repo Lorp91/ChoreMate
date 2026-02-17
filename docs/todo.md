@@ -4,15 +4,16 @@
 
 - [ ] nicht benutzte Dateien loeschen
     - [ ] Pest Browser deinstallieren
-- [ ] Ordnerstruktur
+- [x] Ordnerstruktur
     - [x] Views
-    - [ ] App-Ordner
+    - [x] App-Ordner
 
 ## Auth -> auf Fortify geaendert
 
 - [x] Alles nochmal pruefen und auf Standard bringen -> mit Breeze vergleichen?
     - [x] Namen von Klassen und Functions
     - [x] Controller
+- [ ] FormRequests
 
 ## Household
 
