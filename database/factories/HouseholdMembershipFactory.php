@@ -22,8 +22,8 @@ class HouseholdMembershipFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
-            'household_id' => Household::factory(),
+            // 'user_id' => User::factory(),
+            // 'household_id' => Household::factory(),
             'role' => HouseholdRole::MEMBER->label(),
             'status' => MembershipStatus::ACTIVE->label(),
             'invite_token' => Str::upper(Str::random(8)),

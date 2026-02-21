@@ -99,4 +99,4 @@
 ## Sonstiges
 
 - [ ] Database-Queries gucken und Anzahl verringern - clean machen
-- [ ] Seeden nochmal richtig machen das nicht mehr erstellt wird als man schreibt
+- [x] Seeden nochmal richtig machen das nicht mehr erstellt wird als man schreibt

@@ -20,7 +20,7 @@ class HouseholdFactory extends Factory
         return [
             'name' => fake()->lastName(),
             'description' => fake()->sentence(),
-            'created_by' => User::factory(),
+            // 'created_by' => User::factory(),
         ];
     }
 }

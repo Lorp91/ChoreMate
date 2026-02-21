@@ -25,8 +25,8 @@ class TaskFactory extends Factory
             'due_date' => fake()->date(),
             'repeat_interval' => fake()->randomDigit(),
             'interval_unit' => fake()->randomElement(IntervalUnit::values()),
-            'room_id' => Room::factory(),
-            'user_id' => User::factory(),
+            // 'room_id' => Room::factory(),
+            // 'user_id' => User::factory(),
         ];
     }
 }

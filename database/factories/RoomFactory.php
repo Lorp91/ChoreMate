@@ -19,7 +19,7 @@ class RoomFactory extends Factory
     {
         return [
             'name' => fake()->lastName(),
-            'household_id' => Household::factory(),
+            // 'household_id' => Household::factory(),
         ];
     }
 }
