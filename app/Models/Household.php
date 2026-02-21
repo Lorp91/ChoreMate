@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\HouseholdRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -15,6 +16,8 @@ class Household extends Model
 
     protected $fillable = [
         'name',
+        'description',
+        'created_by',
     ];
 
     // relations
@@ -42,5 +45,10 @@ class Household extends Model
             ->wherePivot('role', HouseholdRole::OWNER->label())
             ->withPivot('role', 'status')
             ->withTimestamps();
+    }
+
+    public function creator(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

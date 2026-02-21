@@ -20,10 +20,10 @@
 - [x] Migration
     - [x] Pivottabellenname household_user
 - [x] Factory
-- [ ] Seeding
-- [ ] Model
-    - [ ] Beziehungen -> Pivots
-    - [ ] Logik
+- [x] Seeding
+- [x] Model
+    - [x] Beziehungen -> Pivots
+    - [x] Logik
 - [ ] Routing
     - [ ] Ressource -> shallow
 - [ ] Controller
@@ -38,7 +38,7 @@
 
 - [ ] Migration
 - [ ] Factory
-- [ ] Seeding
+- [x] Seeding
 - [ ] Model
     - [ ] Beziehungen
     - [ ] Logik
@@ -56,7 +56,7 @@
 
 - [ ] Migration
 - [ ] Factory
-- [ ] Seeding
+- [x] Seeding
 - [ ] Model
     - [ ] Beziehungen
     - [ ] Logik
