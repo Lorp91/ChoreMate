@@ -24,8 +24,8 @@
 - [x] Model
     - [x] Beziehungen -> Pivots
     - [x] Logik
-- [ ] Routing
-    - [ ] Ressource -> shallow
+- [x] Routing
+    - [x] Ressource -> shallow
 - [ ] Controller
     - [ ] Policy
     - [ ] Requests
@@ -42,8 +42,8 @@
 - [ ] Model
     - [ ] Beziehungen
     - [ ] Logik
-- [ ] Routing
-    - [ ] Ressource -> shallow
+- [x] Routing
+    - [x] Ressource -> shallow
 - [ ] Controller
     - [ ] Policy
     - [ ] Requests
@@ -60,8 +60,8 @@
 - [ ] Model
     - [ ] Beziehungen
     - [ ] Logik
-- [ ] Routing
-    - [ ] Ressource -> shallow
+- [x] Routing
+    - [x] Ressource -> shallow
 - [ ] Controller
     - [ ] Policy
     - [ ] Requests

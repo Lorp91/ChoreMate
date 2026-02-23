@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Household;
 use App\Models\Room;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -58,13 +57,17 @@ class RoomController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Household $household, Room $room)
+    public function show(Room $room)
     {
-        $this->authorize('view', $household);
+        $household = Household::with('rooms.tasks.room')
+            ->firstOrFail();
 
-        $tasks = $room->tasks;
+        $room = $household->rooms->firstWhere('id', $room->id);
 
-        return view('pages.rooms.show', compact('household', 'room', 'tasks'));
+        return view('pages.rooms.show', [
+            'household' => $household,
+            'room' => $room,
+        ]);
     }
 
     /**

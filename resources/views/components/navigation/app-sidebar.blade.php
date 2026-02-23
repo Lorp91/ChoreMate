@@ -9,7 +9,7 @@
         <a href="{{ route('households.index') }}" class="font-bold text-3xl">{{ $currentHousehold->name ?? '' }}</a>
     </div>
     <div class="flex flex-col gap-2 mt-5">
-        <a href="{{ route('households.dashboard', $currentHousehold) }}" class="text-xl">Dashboard</a>
+        <a href="{{ route('dashboard', $currentHousehold) }}" class="text-xl">Dashboard</a>
         <a href="" class="text-base-content/40 text-xl cursor-not-allowed">Kalender</a>
         <a href="" class="text-base-content/40 text-xl cursor-not-allowed">Statistik</a>
         <a href="" class="text-base-content/40 text-xl cursor-not-allowed">Alle Aufgaben</a>
@@ -24,7 +24,7 @@
             <ul class="space-y-2 mt-1 ml-4">
                 @foreach ($currentRooms as $room)
                     <li>
-                        <a href="{{ route('households.rooms.show', [$currentHousehold, $room]) }}"
+                        <a href="{{ route('rooms.show', $room) }}"
                             class="{{ request()->route('room')?->id === $room->id ? 'menu-active' : '' }}">{{ $room->name }}</a>
                     </li>
                 @endforeach
