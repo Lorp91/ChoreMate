@@ -40,7 +40,7 @@ class Household extends Model
         return $this->hasMany(Room::class);
     }
 
-    public function owner(): BelongsToMany
+    public function owners(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'household_memberships')
             ->wherePivot('role', HouseholdRole::OWNER->label())
@@ -50,7 +50,7 @@ class Household extends Model
 
     public function creator(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'created_by');
     }
 
     // logic

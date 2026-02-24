@@ -32,7 +32,7 @@
     - [x] Services -> nur wenn komplexe logik
     - [x] Actions -> create, update, delete und extra
 - [x] Views
-- [ ] Tests
+- [x] Tests
 
 ## Room
 
