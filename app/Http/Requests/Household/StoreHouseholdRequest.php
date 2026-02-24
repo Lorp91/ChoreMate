@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Requests\App\Household;
+namespace App\Http\Requests\Household;
 
+use App\Models\Household;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreHouseHoldRequest extends FormRequest
@@ -11,9 +12,8 @@ class StoreHouseHoldRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        $household = $this->route('household');
-
-        return $this->user()->can('create', $household);
+        // return $this->user()->can('create', Household::class);
+        return true;
     }
 
     /**

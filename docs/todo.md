@@ -31,7 +31,7 @@
     - [x] Requests -> store und update
     - [x] Services -> nur wenn komplexe logik
     - [x] Actions -> create, update, delete und extra
-- [ ] Views
+- [x] Views
 - [ ] Tests
 
 ## Room

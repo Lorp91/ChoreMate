@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Actions\Household\CreateHouseholdAction;
 use App\Actions\Household\DeleteHouseholdAction;
 use App\Actions\Household\UpdateHouseholdAction;
-use App\Http\Requests\App\Household\StoreHouseHoldRequest;
-use App\Http\Requests\UpdateHouseholdRequest;
+use App\Http\Requests\Household\StoreHouseholdRequest;
+use App\Http\Requests\Household\UpdateHouseholdRequest;
 use App\Models\Household;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +30,7 @@ class HouseholdController extends Controller
     }
 
     public function store(
-        StoreHouseHoldRequest $request,
+        StoreHouseholdRequest $request,
         CreateHouseholdAction $action
     ) {
         $action->handle($request->user(), $request->validated());

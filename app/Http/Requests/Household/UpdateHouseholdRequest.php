@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Household;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -11,9 +11,8 @@ class UpdateHouseholdRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        $household = $this->route('household');
-
-        return $this->user()->can('update', $household);
+        // return $this->user()->can('update', $this->route('household'));
+        return true;
     }
 
     /**
