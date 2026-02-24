@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\HouseholdRole;
-use App\Enums\MembershipStatus;
-use App\Http\Controllers\Controller;
+use App\Actions\Household\CreateHouseholdAction;
+use App\Actions\Household\DeleteHouseholdAction;
+use App\Actions\Household\UpdateHouseholdAction;
 use App\Http\Requests\App\Household\StoreHouseHoldRequest;
+use App\Http\Requests\UpdateHouseholdRequest;
 use App\Models\Household;
-use App\Models\HouseholdMembership;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HouseholdController extends Controller
 {
-    use AuthorizesRequests;
+    public function __construct()
+    {
+        $this->authorizeResource(Household::class, 'household');
+    }
 
     public function index()
     {
@@ -28,23 +29,11 @@ class HouseholdController extends Controller
         return view('pages.households.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreHouseHoldRequest $request)
-    {
-        $household = Household::create([
-            'name' => $request->name,
-        ]);
-
-        HouseholdMembership::create([
-            'user_id' => Auth::id(),
-            'household_id' => $household->id,
-            'role' => HouseholdRole::OWNER->label(),
-            'status' => MembershipStatus::ACTIVE->label(),
-        ]);
-
-        session(['current_household_id' => $household->id]);
+    public function store(
+        StoreHouseHoldRequest $request,
+        CreateHouseholdAction $action
+    ) {
+        $action->handle($request->user(), $request->validated());
 
         return redirect()
             ->route('households.index')
@@ -53,47 +42,31 @@ class HouseholdController extends Controller
 
     public function show(Household $household)
     {
-        $this->authorize('view', $household);
-
         return view('pages.dashboard.index', compact('household'));
     }
 
     public function edit(Household $household)
     {
-        $this->authorize('view', $household);
-
         return view('pages.households.edit', compact('household'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Household $household)
-    {
-        $this->authorize('manage', $household);
-
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-        ]);
-
-        $household->update([
-            'name' => $request->name,
-        ]);
+    public function update(
+        UpdateHouseholdRequest $request,
+        Household $household,
+        UpdateHouseholdAction $action
+    ) {
+        $household = $action->handle($household, $request->validated());
 
         return redirect()
             ->back()
             ->with('success', 'Haushalt wurde erfolgreich aktualisiert.');
-
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Household $household)
-    {
-        $this->authorize('manage', $household);
-
-        $household->delete();
+    public function destroy(
+        Household $household,
+        DeleteHouseholdAction $action
+    ) {
+        $action->handle($household);
 
         return redirect()
             ->route('households.index')

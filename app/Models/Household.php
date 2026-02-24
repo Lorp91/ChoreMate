@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\HouseholdRole;
+use App\Enums\MembershipStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -50,5 +51,27 @@ class Household extends Model
     public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    // logic
+
+    public function isMember(User $user): bool
+    {
+        return $this->users()
+            ->where('user_id', $user->id)
+            ->wherePivot('status', MembershipStatus::ACTIVE->label())
+            ->wherePivotIn('role', [
+                HouseholdRole::MEMBER->label(),
+                HouseholdRole::OWNER->label(),
+            ])
+            ->exists();
+    }
+
+    public function isOwner(User $user): bool
+    {
+        return $this->users()
+            ->where('user_id', $user->id)
+            ->wherePivot('role', HouseholdRole::OWNER->label())
+            ->exists();
     }
 }

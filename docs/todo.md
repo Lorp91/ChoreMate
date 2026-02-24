@@ -26,11 +26,11 @@
     - [x] Logik
 - [x] Routing
     - [x] Ressource -> shallow
-- [ ] Controller
-    - [ ] Policy
-    - [ ] Requests
-    - [ ] Services
-    - [ ] Actions
+- [x] Controller
+    - [x] Policy -> eine fuer alles
+    - [x] Requests -> store und update
+    - [x] Services -> nur wenn komplexe logik
+    - [x] Actions -> create, update, delete und extra
 - [ ] Views
 - [ ] Tests
 
