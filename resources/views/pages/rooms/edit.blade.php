@@ -1,20 +1,17 @@
 <x-layout.app title="{{ $room->name }} bearbeiten">
-    <h2 class="text-3xl">{{ $room->name }}</h2>
-    <form method="POST" action="{{ route('households.rooms.update', [$household, $room]) }}">
+    <form method="POST" action="{{ route('rooms.update', $room) }}" class="max-w-xl">
         @csrf
         @method('PUT')
 
-        <x-form.field
-            name="name"
-            label="Name"
-            value="{{ old('name', $room->name) }}"
-        />
+        <x-form.field name="name" label="Name" value="{{ old('name', $room->name) }}" />
 
-        <button type="submit" form="delete-household" class="btn btn-warning">Loeschen</button>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <div class="flex flex-row-reverse items-center gap-3 mt-5">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" form="delete-household" class="btn btn-warning">Loeschen</button>
+        </div>
     </form>
 
-    <form id="delete-household" method="POST" action="{{ route('households.rooms.destroy', [$household, $room]) }}">
+    <form id="delete-household" method="POST" action="{{ route('rooms.destroy', $room) }}">
         @csrf
         @method('DELETE')
     </form>

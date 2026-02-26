@@ -36,20 +36,20 @@
 
 ## Room
 
-- [ ] Migration
-- [ ] Factory
+- [x] Migration
+- [x] Factory
 - [x] Seeding
-- [ ] Model
-    - [ ] Beziehungen
-    - [ ] Logik
+- [x] Model
+    - [x] Beziehungen
+    - [x] Logik
 - [x] Routing
     - [x] Ressource -> shallow
-- [ ] Controller
-    - [ ] Policy
-    - [ ] Requests
-    - [ ] Services
-    - [ ] Actions
-- [ ] Views
+- [x] Controller
+    - [x] Policy
+    - [x] Requests
+    - [x] Services
+    - [x] Actions
+- [x] Views
 - [ ] Tests
 
 ## Task

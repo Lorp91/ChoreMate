@@ -2,55 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Room\CreateRoomAction;
+use App\Actions\Room\DeleteRoomAction;
+use App\Actions\Room\UpdateRoomAction;
+use App\Http\Requests\Room\StoreRoomRequest;
+use App\Http\Requests\Room\UpdateRoomRequest;
 use App\Models\Household;
 use App\Models\Room;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
     use AuthorizesRequests;
 
     /**
-     * Display a listing of the resource.
-     */
-    public function index(Household $household)
-    {
-        $this->authorize('view', $household);
-
-        $rooms = $household->rooms;
-
-        return view('pages.rooms.index', compact('household', 'rooms'));
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
     public function create(Household $household)
     {
-        $this->authorize('manage', $household);
-
         return view('pages.rooms.create', compact('household'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Household $household)
-    {
-        $this->authorize('manage', $household);
+    public function store(
+        StoreRoomRequest $request,
+        Household $household,
+        CreateRoomAction $action
+    ) {
+        $room = $action->handle($request->validated(), $household);
 
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-        ]);
-
-        Room::create([
-            'name' => $request->name,
-            'household_id' => $household->id,
-        ]);
-
-        return redirect()
-            ->route('households.rooms.index', compact('household'))
+        return view('pages.rooms.show', compact('household', 'room'))
             ->with('success', 'Raum erfolgreich erstellt.');
     }
 
@@ -73,45 +56,40 @@ class RoomController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Household $household, Room $room)
+    public function edit(Room $room)
     {
-        $this->authorize('manage', $household);
-
-        return view('pages.rooms.edit', compact('household', 'room'));
+        return view('pages.rooms.edit', compact('room'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Household $household, Room $room)
-    {
-        $this->authorize('manage', $household);
+    public function update(
+        UpdateRoomRequest $request,
+        Room $room,
+        UpdateRoomAction $action
+    ) {
+        $action->handle($room, $request->validated());
 
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-        ]);
+        $household = $room->household;
 
-        $room->update([
-            'name' => $request->name,
-            'household_id' => $household->id,
-        ]);
-
-        return redirect()
-            ->route('households.rooms.index', compact('household'))
+        return view('pages.rooms.show', compact('household', 'room'))
             ->with('success', 'Raum erfolgreich aktualisiert.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Household $household, Room $room)
-    {
-        $this->authorize('manage', $household);
+    public function destroy(
+        Room $room,
+        DeleteRoomAction $action
+    ) {
+        $action->handle($room);
 
-        $room->delete();
+        $household = $room->household;
 
         return redirect()
-            ->route('households.rooms.index', compact('household'))
+            ->route('dashboard', compact('household'))
             ->with('success', 'Raum erfolgreich entfernt.');
     }
 }

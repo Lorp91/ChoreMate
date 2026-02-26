@@ -2,7 +2,7 @@
     <div class="right-4 bottom-4 z-50 fixed flex flex-row-reverse items-center gap-3">
         <a href="{{ route('households.rooms.tasks.create', [$household, $room]) }}" class="btn btn-success">+ Aufgabe
             erstellen</a>
-        <a href="{{ route('rooms.edit', [$household, $room]) }}" class="btn btn-info">Raum bearbeiten</a>
+        <a href="{{ route('rooms.edit', $room) }}" class="btn btn-info">Raum bearbeiten</a>
     </div>
     <div class="space-y-2 bg-base-300 p-4 rounded-2xl">
         {{-- $todayTasks erstellen --}}
