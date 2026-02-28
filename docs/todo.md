@@ -2,7 +2,7 @@
 
 ## Refactor
 
-- [ ] nicht benutzte Dateien loeschen
+- [x] nicht benutzte Dateien loeschen
     - [x] Pest Browser deinstallieren
 - [x] Ordnerstruktur
     - [x] Views
@@ -54,12 +54,12 @@
 
 ## Task
 
-- [ ] Migration
-- [ ] Factory
+- [x] Migration
+- [x] Factory
 - [x] Seeding
-- [ ] Model
-    - [ ] Beziehungen
-    - [ ] Logik
+- [x] Model
+    - [x] Beziehungen
+    - [x] Logik
 - [x] Routing
     - [x] Ressource -> shallow
 - [ ] Controller
@@ -67,7 +67,7 @@
     - [ ] Requests
     - [ ] Services
     - [ ] Actions
-- [ ] Views
+- [x] Views
 - [ ] Tests
 
 ## Benutzeroberflaeche
