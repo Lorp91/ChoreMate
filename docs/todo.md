@@ -62,11 +62,11 @@
     - [x] Logik
 - [x] Routing
     - [x] Ressource -> shallow
-- [ ] Controller
-    - [ ] Policy
-    - [ ] Requests
-    - [ ] Services
-    - [ ] Actions
+- [x] Controller
+    - [x] Policy
+    - [x] Requests
+    - [x] Services
+    - [x] Actions
 - [x] Views
 - [ ] Tests
 
@@ -78,8 +78,8 @@
         - [ ] Class Component anstatt View Composer testen
         - [ ] falls View Composer bleibt cachen und limiten
     - [ ] Sortierungen der Raeume steuern
-- [ ] Ueberlegen welche Pages wirklich gebraucht werden
-    - [ ] Ablaeufe designen? User-Stories bzw User-Flows/Journey
+- [x] Ueberlegen welche Pages wirklich gebraucht werden
+    - [x] Ablaeufe designen? User-Stories bzw User-Flows/Journey
 - [ ] Dashboard
 - [ ] Filterfunktionen
 
@@ -98,5 +98,5 @@
 
 ## Sonstiges
 
-- [ ] Database-Queries gucken und Anzahl verringern - clean machen
+- [x] Database-Queries gucken und Anzahl verringern - clean machen
 - [x] Seeden nochmal richtig machen das nicht mehr erstellt wird als man schreibt

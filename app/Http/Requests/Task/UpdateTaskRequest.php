@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\App\Task;
+namespace App\Http\Requests\Task;
 
 use App\Enums\IntervalUnit;
 use App\Enums\MembershipStatus;
@@ -14,7 +14,7 @@ class UpdateTaskRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->user()->can('manage', $this->route('household'));
+        return true;
     }
 
     /**
@@ -35,7 +35,7 @@ class UpdateTaskRequest extends FormRequest
                 'nullable',
                 Rule::exists('users', 'id'),
                 Rule::exists('household_memberships', 'user_id')
-                    ->where('household_id', $this->route('household')->id)
+                    ->where('household_id', $this->route('task')->room->household->id)
                     ->where('status', MembershipStatus::ACTIVE->label()),
             ],
         ];

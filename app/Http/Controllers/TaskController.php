@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\App\Task\StoreTaskRequest;
-use App\Http\Requests\App\Task\UpdateTaskRequest;
+use App\Actions\Task\CreateTaskAction;
+use App\Actions\Task\DeleteTaskAction;
+use App\Actions\Task\UpdateTaskAction;
+use App\Http\Requests\Task\StoreTaskRequest;
+use App\Http\Requests\Task\UpdateTaskRequest;
 use App\Models\Household;
 use App\Models\Room;
 use App\Models\Task;
@@ -16,84 +18,74 @@ class TaskController extends Controller
     use AuthorizesRequests;
 
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
     public function create(Household $household, Room $room)
     {
-        $this->authorize('view', $household);
-
         return view('pages.tasks.create', compact('household', 'room'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTaskRequest $request, Household $household, Room $room)
-    {
-        $room->tasks()->create($request->validated());
+    public function store(
+        StoreTaskRequest $request,
+        Household $household,
+        Room $room,
+        CreateTaskAction $action
+    ) {
+        $action->handle($room, $request->validated());
 
         return redirect()
-            ->route('households.rooms.show', compact('household', 'room'))
+            ->route('rooms.show', compact('household', 'room'))
             ->with('success', 'Aufgabe erfolgreich erstellt.');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Household $household, Room $room, Task $task)
-    {
-        $this->authorize('view', $household);
-
-        return view('pages.tasks.show', compact('household', 'room', 'task'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Household $household, Room $room, Task $task)
+    public function edit(Task $task)
     {
-        $this->authorize('manage', $household);
-
-        return view('pages.tasks.edit', compact('household', 'room', 'task'));
+        return view('pages.tasks.edit', compact('task'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTaskRequest $request, Household $household, Room $room, Task $task)
-    {
-        $task->update($request->validated());
+    public function update(
+        UpdateTaskRequest $request,
+        Task $task,
+        UpdateTaskAction $action
+    ) {
+        $action->handle($task, $request->validated());
+
+        $room = $task->room;
 
         return redirect()
-            ->route('households.rooms.show', compact('household', 'room'))
+            ->route('rooms.show', compact('room'))
             ->with('success', 'Aufgabe erfolgreich aktualisiert.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Household $household, Room $room, Task $task)
-    {
-        $this->authorize('manage', $household);
+    public function destroy(
+        Household $household,
+        Task $task,
+        DeleteTaskAction $action
+    ) {
+        $action->handle($task);
 
-        $task->delete();
+        $room = $task->room;
 
         return redirect()
-            ->route('households.rooms.show', compact('household', 'room'))
+            ->route('rooms.show', compact('room'))
             ->with('success', 'Aufgabe erfolgreich geloescht.');
     }
 
-    public function complete(Household $household, Room $room, Task $task)
+    public function complete(Task $task)
     {
-        $this->authorize('view', $household);
+        $this->authorize('view', $task);
 
         $task->complete(Auth::user());
 

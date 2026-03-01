@@ -7,24 +7,19 @@
     <div class="space-y-2 bg-base-300 p-4 rounded-2xl">
         {{-- $todayTasks erstellen --}}
         <h2 class="text-2xl">Heute</h2>
-        @foreach ($room->tasks as $task)
+        @foreach ($tasks_today as $task)
             <x-task.card :task="$task" />
         @endforeach
     </div>
     <div class="space-y-2 bg-base-200 mt-5 p-4 rounded-2xl">
         {{-- sortieren und anzeigen --}}
         <h2 class="text-2xl">Alle Aufgaben</h2>
-        @foreach ($room->tasks as $task)
-            <div class="bg-base-100 shadow-sm max-w-5xl card">
-                <div class="flex flex-row items-center card-body">
-                    <input type="checkbox" class="checkbox" />
-                    <h2 class="text-xl">{{ $task->title }}</h2>
-                </div>
-            </div>
+        @foreach ($tasks_future as $task)
+            <x-task.card :task="$task" />
         @endforeach
     </div>
 
-    <ul class="space-y-4 w-2xl">
+    {{-- <ul class="space-y-4 w-2xl">
         @foreach ($room->tasks as $task)
             <li>
                 <div class="flex justify-between items-center gap-5 w-full">
@@ -42,5 +37,5 @@
                 </div>
             </li>
         @endforeach
-    </ul>
+    </ul> --}}
 </x-layout.app>

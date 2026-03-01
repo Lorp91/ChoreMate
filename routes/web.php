@@ -19,6 +19,7 @@ Route::middleware('auth')
             ->shallow();
 
         Route::resource('households.rooms.tasks', TaskController::class)
+            ->except(['index', 'show'])
             ->shallow();
 
         Route::get('households/{household}/dashboard', [DashboardController::class, 'index'])

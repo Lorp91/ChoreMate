@@ -1,5 +1,5 @@
 <x-layout.app title="Task">
-    <form method="POST" action="{{ route('households.rooms.tasks.update', [$household, $room, $task]) }}">
+    <form method="POST" action="{{ route('tasks.update', $task) }}" class="max-w-xl">
         @csrf
         @method('PUT')
 
@@ -10,10 +10,12 @@
         {{-- evtl dann select --}}
         <x-form.field name="interval_unit" label="Intervall" :value="$task->interval_unit" />
 
-        <button type="submit" form="delete-task" class="btn btn-warning">Loeschen</button>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <div class="flex flex-row-reverse items-center gap-3 mt-5">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" form="delete-task" class="btn btn-warning">Loeschen</button>
+        </div>
     </form>
-    <form id="delete-task" method="POST" action="{{ route('households.rooms.tasks.destroy', [$household, $room, $task]) }}">
+    <form id="delete-task" method="POST" action="{{ route('tasks.destroy', $task) }}">
         @csrf
         @method('DELETE')
     </form>

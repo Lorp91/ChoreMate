@@ -9,6 +9,7 @@ use App\Http\Requests\Room\StoreRoomRequest;
 use App\Http\Requests\Room\UpdateRoomRequest;
 use App\Models\Household;
 use App\Models\Room;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class RoomController extends Controller
@@ -42,14 +43,26 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        $household = Household::with('rooms.tasks.room')
-            ->firstOrFail();
+        $room = Room::with(['tasks.room'])->findOrFail($room->id);
 
-        $room = $household->rooms->firstWhere('id', $room->id);
+        $today = Carbon::today();
+        $tomorrow = Carbon::tomorrow();
+
+        $tasks_sorted = $room->tasks->sortBy('due_date');
+
+        $tasks_today = $tasks_sorted->filter(fn ($task) => $task->due_date <= $today && $task->due_date < $tomorrow);
+        $tasks_future = $tasks_sorted->filter(fn ($task) => $task->due_date >= $tomorrow);
+
+        // $household = Household::with('rooms.tasks.room')
+        //     ->firstOrFail();
+
+        // $room = $household->rooms->firstWhere('id', $room->id);
 
         return view('pages.rooms.show', [
-            'household' => $household,
+            'household' => $room->household,
             'room' => $room,
+            'tasks_today' => $tasks_today,
+            'tasks_future' => $tasks_future,
         ]);
     }
 
