@@ -10,18 +10,24 @@ use App\Http\Requests\Task\UpdateTaskRequest;
 use App\Models\Household;
 use App\Models\Room;
 use App\Models\Task;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-    use AuthorizesRequests;
+    public function __construct()
+    {
+        $this->authorizeResource(Task::class, 'task', [
+            'except' => ['create', 'store'],
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create(Household $household, Room $room)
     {
+        $this->authorize('create', [Task::class, $household]);
+
         return view('pages.tasks.create', compact('household', 'room'));
     }
 
@@ -34,6 +40,8 @@ class TaskController extends Controller
         Room $room,
         CreateTaskAction $action
     ) {
+        $this->authorize('create', [Task::class, $household]);
+
         $action->handle($room, $request->validated());
 
         return redirect()

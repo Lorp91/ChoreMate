@@ -27,15 +27,9 @@ class TaskPolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(User $user, Household $household): bool
     {
-        $householdId = request('household_id');
-
-        if ($householdId && Household::find($householdId)->isMember($user)) {
-            return true;
-        }
-
-        return false;
+        return $household->isMember($user);
     }
 
     /**
