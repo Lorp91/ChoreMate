@@ -10,17 +10,23 @@ use App\Http\Requests\Room\UpdateRoomRequest;
 use App\Models\Household;
 use App\Models\Room;
 use Carbon\Carbon;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class RoomController extends Controller
 {
-    use AuthorizesRequests;
+    public function __construct()
+    {
+        $this->authorizeResource(Room::class, 'room', [
+            'except' => ['create', 'store'],
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create(Household $household)
     {
+        $this->authorize('create', [Room::class, $household]);
+
         return view('pages.rooms.create', compact('household'));
     }
 
@@ -32,9 +38,11 @@ class RoomController extends Controller
         Household $household,
         CreateRoomAction $action
     ) {
+        $this->authorize('create', [Room::class, $household]);
+
         $room = $action->handle($request->validated(), $household);
 
-        return view('pages.rooms.show', compact('household', 'room'))
+        return redirect(route('rooms.show', $room))
             ->with('success', 'Raum erfolgreich erstellt.');
     }
 
@@ -50,13 +58,8 @@ class RoomController extends Controller
 
         $tasks_sorted = $room->tasks->sortBy('due_date');
 
-        $tasks_today = $tasks_sorted->filter(fn ($task) => $task->due_date <= $today && $task->due_date < $tomorrow);
+        $tasks_today = $tasks_sorted->filter(fn ($task) => is_null($task->due_date) || $task->due_date <= $today);
         $tasks_future = $tasks_sorted->filter(fn ($task) => $task->due_date >= $tomorrow);
-
-        // $household = Household::with('rooms.tasks.room')
-        //     ->firstOrFail();
-
-        // $room = $household->rooms->firstWhere('id', $room->id);
 
         return view('pages.rooms.show', [
             'household' => $room->household,
@@ -84,9 +87,7 @@ class RoomController extends Controller
     ) {
         $action->handle($room, $request->validated());
 
-        $household = $room->household;
-
-        return view('pages.rooms.show', compact('household', 'room'))
+        return redirect(route('rooms.show', $room))
             ->with('success', 'Raum erfolgreich aktualisiert.');
     }
 

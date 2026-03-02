@@ -28,9 +28,10 @@ it('allows owner to delete household', function () {
 });
 
 it('prevents members to delete household', function () {
+    $owner = User::factory()->create();
     $member = User::factory()->create();
     $household = Household::factory()->create([
-        'created_by' => $member->id,
+        'created_by' => $owner->id,
     ]);
 
     HouseholdMembership::factory()->create([

@@ -18,24 +18,4 @@
             <x-task.card :task="$task" />
         @endforeach
     </div>
-
-    {{-- <ul class="space-y-4 w-2xl">
-        @foreach ($room->tasks as $task)
-            <li>
-                <div class="flex justify-between items-center gap-5 w-full">
-                    <a href="{{ route('tasks.show', $task) }}">{{ $task->title }}
-                        , {{ $task->due_date }}</a>
-                    <div class="flex items-center gap-5">
-                        <a href="{{ route('tasks.edit', $task) }}" class="btn btn-info">Edit</a>
-                        <form method="POST" action="{{ route('tasks.complete', $task) }}">
-                            @csrf
-                            @method('PATCH')
-
-                            <button type="submit" class="btn">Erledigen</button>
-                        </form>
-                    </div>
-                </div>
-            </li>
-        @endforeach
-    </ul> --}}
 </x-layout.app>

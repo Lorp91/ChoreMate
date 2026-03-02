@@ -50,7 +50,7 @@
     - [x] Services
     - [x] Actions
 - [x] Views
-- [ ] Tests
+- [x] Tests
 
 ## Task
 
